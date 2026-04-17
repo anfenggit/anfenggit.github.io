@@ -1,0 +1,29 @@
+<!-- 必须引入微信 JSSDK -->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+
+<script>
+  // 页面加载后执行
+  window.onload = function () {
+    // 配置信息（你们后端能生成）
+    wx.config({
+      debug: false,
+      appId: 'wx41a41ecebcaee1fd', // 你的小程序/公众号 AppID
+      timestamp: '', // 后端生成
+      nonceStr: '', // 后端生成
+      signature: '', // 后端生成
+      jsApiList: ['launchMiniProgram'] // 必须
+    });
+
+    // 调起小程序
+    wx.ready(function () {
+      wx.launchMiniProgram({
+        targetEnvironment: 'release', // 正式版
+        userName: 'gh_xxxxxxx', // 小程序原始ID（必填！）
+        path: 'pages/meeting/meeting?userToken=bd57906c233ad26ea9fa0567429df676b30e9ee09eec6ce284f6906e1c727d15&userCode=JYY&openid=testopenid',
+        success: function (res) {
+          console.log('打开成功');
+        }
+      });
+    });
+  };
+</script>
